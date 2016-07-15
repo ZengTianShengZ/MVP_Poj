@@ -1,8 +1,10 @@
 package mvp.zts.com.mvp_base;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -19,7 +21,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
      * the presenter of this Activity
      */
     protected P mPresenter;
-
+    protected Context mContext;
     /**
      *  get  Toolbar
      */
@@ -37,6 +39,8 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.i("onCreate","BaseActivity");
+        mContext = getApplicationContext();
         setContentView(getLayout());
         ButterKnife.bind(this);
 

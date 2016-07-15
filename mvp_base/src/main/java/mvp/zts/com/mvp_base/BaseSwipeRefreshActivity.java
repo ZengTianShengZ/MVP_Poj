@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.CheckResult;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 
 import mvp.zts.com.mvp_base.Presenter.BasePresenter;
 import mvp.zts.com.mvp_base.Presenter.IView.ISwipeRefreshView;
@@ -16,6 +17,14 @@ public abstract class BaseSwipeRefreshActivity<P extends BasePresenter> extends 
     private SwipeRefreshLayout mSwipeRefreshLayout;
 
     protected abstract SwipeRefreshLayout getSwipeRefreshLayout();
+
+
+    /**
+     * check data status
+     * 需要的话可以重写此方法，比如做一些网络判断，来是否开启 mSwipeRefreshLayout 的状态
+     * @return return true indicate it should load data really else indicate don't refresh
+     */
+    protected boolean prepareRefresh = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +44,7 @@ public abstract class BaseSwipeRefreshActivity<P extends BasePresenter> extends 
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                if (prepareRefresh()) {
+                if (prepareRefresh) {
                     onRefreshStarted();
                 } else {
                     //产生一个加载数据的假象
@@ -44,13 +53,7 @@ public abstract class BaseSwipeRefreshActivity<P extends BasePresenter> extends 
             }
         });
     }
-    /**
-     * check data status
-     * @return return true indicate it should load data really else indicate don't refresh
-     */
-    protected boolean prepareRefresh(){
-        return true;
-    }
+
 
     /**
      * the method of get data
@@ -67,7 +70,7 @@ public abstract class BaseSwipeRefreshActivity<P extends BasePresenter> extends 
                     mSwipeRefreshLayout.setRefreshing(false);
                 }
             }
-        },1000);
+        },5000);
     }
 
     @Override
