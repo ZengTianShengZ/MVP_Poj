@@ -1,4 +1,4 @@
-package mvp.zts.com.mvp_poj.ui;
+package mvp.zts.com.mvp_poj.ui.activity;
 
 /**
  * Created by Administrator on 2016/7/15.

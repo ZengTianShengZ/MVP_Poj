@@ -62,7 +62,7 @@ public abstract class BaseRecycleViewAdapter<T> extends RecyclerView.Adapter<Rec
 
 	@Override
 	public void onBindViewHolder(final RecycleViewHolder holder, final int position) {
-		//holder.updatePosition(position);
+		holder.updatePosition(position);
 		convert(holder, mDatas.get(position), holder.getAdapterPosition());
 		/*if(position + 1 == getItemCount()){
 			TextView lodingTv = holder.getView(R.id.tv_loading);

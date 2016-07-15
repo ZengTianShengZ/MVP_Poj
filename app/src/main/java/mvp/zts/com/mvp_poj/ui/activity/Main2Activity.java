@@ -1,4 +1,4 @@
-package mvp.zts.com.mvp_poj.ui;
+package mvp.zts.com.mvp_poj.ui.activity;
 
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
