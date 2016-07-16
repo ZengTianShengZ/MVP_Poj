@@ -1,13 +1,12 @@
-package mvp.zts.com.mvp_base;
+package mvp.zts.com.mvp_base.ui.activity;
 
 import android.os.Bundle;
 import android.support.annotation.CheckResult;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 
 import mvp.zts.com.mvp_base.Presenter.BasePresenter;
 import mvp.zts.com.mvp_base.Presenter.IView.ISwipeRefreshView;
+import mvp.zts.com.mvp_base.R;
 
 /**
  * Created by Administrator on 2016/7/14.
@@ -70,7 +69,7 @@ public abstract class BaseSwipeRefreshActivity<P extends BasePresenter> extends 
                     mSwipeRefreshLayout.setRefreshing(false);
                 }
             }
-        },5000);
+        },1000);
     }
 
     @Override

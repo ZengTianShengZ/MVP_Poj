@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
-import mvp.zts.com.mvp_base.BaseSwipeRefreshActivity;
+import mvp.zts.com.mvp_base.ui.activity.BaseSwipeRefreshActivity;
 import mvp.zts.com.mvp_base.utils.SnackbarUtil;
 import mvp.zts.com.mvp_poj.R;
 import mvp.zts.com.mvp_poj.presenter.IView.IMainView;
@@ -122,12 +122,14 @@ public class MainActivity extends BaseSwipeRefreshActivity<MainPresenter> implem
         int id = item.getItemId();
         switch (id){
             case R.id.menu_1:
-                Intent intent = new Intent(MainActivity.this,Main2Activity.class);
+                SnackbarUtil.PrimarySnackbar(mContext,mToolbar,"FragmentActivity");
+                Intent intent = new Intent(MainActivity.this,FragmentActivity.class);
                 startActivity(intent);
                 break;
             case R.id.menu_2:
-                Intent intent2 = new Intent(MainActivity.this,FragmentActivity.class);
-                startActivity(intent2);
+                SnackbarUtil.PrimarySnackbar(mContext,mToolbar,"FragmentActivity");
+                Intent intent1 = new Intent(MainActivity.this,FragmentActivity.class);
+                startActivity(intent1);
                 break;
 
         }

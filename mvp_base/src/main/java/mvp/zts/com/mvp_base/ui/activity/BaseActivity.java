@@ -1,4 +1,4 @@
-package mvp.zts.com.mvp_base;
+package mvp.zts.com.mvp_base.ui.activity;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -39,15 +39,19 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.i("onCreate","BaseActivity");
+        Log.i("onCreate","333");
         mContext = getApplicationContext();
         setContentView(getLayout());
         ButterKnife.bind(this);
 
         initToolBar();
         initPresenter();
+        checkPresenterIsNull();
 
     }
+
+
+
     /**
      * set the id of menu
      * @return if values is less then zero ,and the activity will not show menu
@@ -72,6 +76,12 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void checkPresenterIsNull(){
+        if(mPresenter == null){
+            throw new IllegalStateException("please init mPresenter in initPresenter() method ");
+        }
     }
 
     final private void initToolBar() {
