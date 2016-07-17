@@ -11,7 +11,7 @@ public interface IMainView<T> extends ISwipeRefreshView {
 
     void fillData(List<T> mData);
 
-    void appendMoreDataToView(T data);
+    void appendMoreDataToView(List<T> mData);
 
     void hasNoMoreData();
 

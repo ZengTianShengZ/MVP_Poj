@@ -21,6 +21,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
 
     protected abstract int getLayout();
     protected abstract void initPresenter();
+    protected abstract void initBaseSwipseRefreshFragment();
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mView = inflater.inflate(getLayout(), container, false);
@@ -29,8 +30,12 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
         initPresenter();
         checkPresenterIsNull();
 
+        initBaseSwipseRefreshFragment();
+
         return mView;
     }
+
+
 
     private void checkPresenterIsNull(){
         if(mPresenter == null){

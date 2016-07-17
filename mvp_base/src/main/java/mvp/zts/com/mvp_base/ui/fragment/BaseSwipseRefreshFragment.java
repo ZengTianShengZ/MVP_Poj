@@ -1,34 +1,29 @@
-package mvp.zts.com.mvp_base.ui.activity;
+package mvp.zts.com.mvp_base.ui.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.CheckResult;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import mvp.zts.com.mvp_base.Presenter.BasePresenter;
 import mvp.zts.com.mvp_base.Presenter.IView.ISwipeRefreshView;
 import mvp.zts.com.mvp_base.R;
+import mvp.zts.com.mvp_base.ui.activity.BaseActivity;
 
 /**
- * Created by Administrator on 2016/7/14.
+ * Created by Administrator on 2016/7/17.
  */
-public abstract class BaseSwipeRefreshActivity<P extends BasePresenter> extends BaseActivity<P> implements ISwipeRefreshView {
+public abstract class BaseSwipseRefreshFragment<P extends BasePresenter> extends BaseFragment<P> implements ISwipeRefreshView {
 
     private SwipeRefreshLayout mSwipeRefreshLayout;
-
     protected abstract SwipeRefreshLayout getSwipeRefreshLayout();
 
-
-    /**
-     * check data status
-     * 需要的话可以重写此方法，比如做一些网络判断，来是否开启 mSwipeRefreshLayout 的状态
-     * @return return true indicate it should load data really else indicate don't refresh
-     */
     protected boolean mPrepareRefresh = false;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
+    protected void initBaseSwipseRefreshFragment() {
         initSwipeLayout();
     }
 
@@ -90,5 +85,4 @@ public abstract class BaseSwipeRefreshActivity<P extends BasePresenter> extends 
     public void getDataFinish() {
         hideRefresh();
     }
-
 }

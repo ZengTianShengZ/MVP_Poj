@@ -32,8 +32,6 @@ public class MainActivity extends BaseSwipeRefreshActivity<MainPresenter> implem
 
     @Bind(R.id.main_RecyclerView)
     RecyclerView main_RecyclerView;
-    @Bind(R.id.bttt)
-    Button bttt;
 
     private MianActivityAdapter mMianActivityAdapter;
     private List<String> adapterList = new ArrayList<String>();
@@ -65,23 +63,17 @@ public class MainActivity extends BaseSwipeRefreshActivity<MainPresenter> implem
         super.onCreate(savedInstanceState);
 
         initRecycleView();
-
+        // 初始化数据
         mPresenter.initData();
-        prepareRefresh = true;
+        // 可刷新状态准备好了
+        mPrepareRefresh = true;
 
-        bttt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,Main2Activity.class);
-                startActivity(intent);
-            }
-        });
     }
 
     @Override
     protected void onRefreshStarted() {
         mPresenter.addMoreData();
-        SnackbarUtil.PrimarySnackbar(mContext,mToolbar,"请求数据");
+
     }
 
     @Override
@@ -95,21 +87,20 @@ public class MainActivity extends BaseSwipeRefreshActivity<MainPresenter> implem
     }
 
     @Override
+    public void hasNoMoreData() {
+        SnackbarUtil.PrimarySnackbar(mContext,mToolbar,"无更多数据");
+    }
+    @Override
     public void fillData(List mData) {
-        SnackbarUtil.PrimarySnackbar(mContext,mToolbar,"fillData");
-        Log.i("fillData","fillData");
+
         mMianActivityAdapter.insertedAllItem(mData);
     }
 
     @Override
-    public void appendMoreDataToView(String data) {
-        mMianActivityAdapter.insertedItem(data,0);
+    public void appendMoreDataToView(List mData) {
+        mMianActivityAdapter.appendMoreItem(mData);
     }
 
-    @Override
-    public void hasNoMoreData() {
-
-    }
 
 
     @Override

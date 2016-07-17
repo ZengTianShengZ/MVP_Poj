@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import mvp.zts.com.mvp_base.Presenter.BasePresenter;
+import mvp.zts.com.mvp_base.R;
 
 /**
  * Created by Administrator on 2016/7/14.
@@ -39,7 +40,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.i("onCreate","333");
+
         mContext = getApplicationContext();
         setContentView(getLayout());
         ButterKnife.bind(this);

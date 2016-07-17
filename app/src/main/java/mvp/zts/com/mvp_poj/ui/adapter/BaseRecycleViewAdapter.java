@@ -109,6 +109,10 @@ public abstract class BaseRecycleViewAdapter<T> extends RecyclerView.Adapter<Rec
 		mDatas.addAll(data);
 		notifyDataSetChanged();
 	}
+	public void appendMoreItem(List<T> data){
+		mDatas.addAll(0,data);
+		notifyDataSetChanged();
+	}
 	/**
 	 * 移除一条数据
 	 * @param position

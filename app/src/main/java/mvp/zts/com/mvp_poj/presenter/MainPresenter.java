@@ -35,10 +35,13 @@ public class MainPresenter extends BasePresenter<IMainView>{
 
         mView.showRefresh();
 
-        String str = "more_";
+        List<String> strList = new ArrayList<String>();
+        for (int i=0;i<10;i++){
+            strList.add("more_"+i);
+        }
 
         mView.getDataFinish();
-        mView.appendMoreDataToView(str);
+        mView.appendMoreDataToView(strList);
 
     }
 
