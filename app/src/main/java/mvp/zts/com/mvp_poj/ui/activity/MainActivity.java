@@ -6,10 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,11 +15,11 @@ import butterknife.Bind;
 import mvp.zts.com.mvp_base.ui.activity.BaseSwipeRefreshActivity;
 import mvp.zts.com.mvp_base.utils.SnackbarUtil;
 import mvp.zts.com.mvp_poj.R;
-import mvp.zts.com.mvp_poj.presenter.IView.IMainView;
+import mvp.zts.com.mvp_poj.presenter.IView.IRefreshView;
 import mvp.zts.com.mvp_poj.presenter.MainPresenter;
 import mvp.zts.com.mvp_poj.ui.adapter.MianActivityAdapter;
 
-public class MainActivity extends BaseSwipeRefreshActivity<MainPresenter> implements IMainView<String> {
+public class MainActivity extends BaseSwipeRefreshActivity<MainPresenter> implements IRefreshView<String> {
 
     @Bind(R.id.toolbar)
     protected Toolbar mToolbar;

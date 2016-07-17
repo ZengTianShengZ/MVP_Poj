@@ -18,4 +18,14 @@ public class HomeFragment extends BaseFragment<HFragmentPresenter> implements IH
     protected void initPresenter() {
        mPresenter = new HFragmentPresenter(getActivity(),this);
     }
+
+    @Override
+    protected void initBaseSwipseRefreshFragment() {
+
+    }
+
+    @Override
+    protected void intiData() {
+
+    }
 }

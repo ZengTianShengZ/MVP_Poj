@@ -7,7 +7,7 @@ import mvp.zts.com.mvp_base.Presenter.IView.ISwipeRefreshView;
 /**
  * Created by Administrator on 2016/7/15.
  */
-public interface IMainView<T> extends ISwipeRefreshView {
+public interface IRefreshView<T> extends ISwipeRefreshView {
 
     void fillData(List<T> mData);
 

@@ -6,14 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import mvp.zts.com.mvp_base.Presenter.BasePresenter;
-import mvp.zts.com.mvp_poj.presenter.IView.IMainView;
+import mvp.zts.com.mvp_poj.presenter.IView.IRefreshView;
 
 /**
  * Created by Administrator on 2016/7/15.
  */
-public class MainPresenter extends BasePresenter<IMainView>{
+public class MainPresenter extends BasePresenter<IRefreshView>{
 
-    public MainPresenter(Activity context, IMainView view) {
+    public MainPresenter(Activity context, IRefreshView view) {
         super(context, view);
     }
 
