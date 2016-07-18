@@ -11,7 +11,7 @@ import mvp.zts.com.mvp_poj.presenter.IView.IHFragmentView;
 public class HomeFragment extends BaseFragment<HFragmentPresenter> implements IHFragmentView {
     @Override
     protected int getLayout() {
-        return R.layout.activity_main2;
+        return R.layout.home_fragment;
     }
 
     @Override

@@ -15,9 +15,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.Main2Activity" />
-        <activity android:name=".ui.activity.sss" />
-        <activity android:name=".ui.activity.FragmentActivity2" />
+
         <activity android:name=".ui.activity.FragmentActivity"></activity>
 
 

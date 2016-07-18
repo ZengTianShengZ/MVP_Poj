@@ -17,7 +17,7 @@ import mvp.zts.com.mvp_base.utils.SnackbarUtil;
 import mvp.zts.com.mvp_poj.R;
 import mvp.zts.com.mvp_poj.presenter.IView.IRefreshView;
 import mvp.zts.com.mvp_poj.presenter.MainPresenter;
-import mvp.zts.com.mvp_poj.ui.adapter.MianActivityAdapter;
+import mvp.zts.com.mvp_poj.ui.adapter.DataAdapter;
 
 public class MainActivity extends BaseSwipeRefreshActivity<MainPresenter> implements IRefreshView<String> {
 
@@ -30,7 +30,7 @@ public class MainActivity extends BaseSwipeRefreshActivity<MainPresenter> implem
     @Bind(R.id.main_RecyclerView)
     RecyclerView main_RecyclerView;
 
-    private MianActivityAdapter mMianActivityAdapter;
+    private DataAdapter mMianActivityAdapter;
     private List<String> adapterList = new ArrayList<String>();
 
     @Override
@@ -128,7 +128,7 @@ public class MainActivity extends BaseSwipeRefreshActivity<MainPresenter> implem
     private void initRecycleView() {
         final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         main_RecyclerView.setLayoutManager(layoutManager);
-        mMianActivityAdapter = new MianActivityAdapter(mContext,adapterList);
+        mMianActivityAdapter = new DataAdapter(mContext,adapterList);
         main_RecyclerView.setAdapter(mMianActivityAdapter);
     }
 

@@ -3,6 +3,7 @@ package mvp.zts.com.mvp_base.ui.fragment;
 import android.os.Bundle;
 import android.support.annotation.CheckResult;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,7 @@ public abstract class BaseSwipseRefreshFragment<P extends BasePresenter> extends
 
     @Override
     protected void initBaseSwipseRefreshFragment() {
+        Log.i("log","...............initBaseSwipseRefreshFragment.............");
         initSwipeLayout();
     }
 
@@ -69,6 +71,9 @@ public abstract class BaseSwipseRefreshFragment<P extends BasePresenter> extends
 
     @Override
     public void showRefresh() {
+        if(mSwipeRefreshLayout == null){
+            mSwipeRefreshLayout = getSwipeRefreshLayout();
+        }
         mSwipeRefreshLayout.setRefreshing(true);
     }
 

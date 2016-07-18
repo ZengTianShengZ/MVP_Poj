@@ -3,6 +3,7 @@ package mvp.zts.com.mvp_base.ui.fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,11 +29,13 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mView = inflater.inflate(getLayout(), container, false);
         mContext = getActivity();
-        ButterKnife.bind(getActivity());
+        //ButterKnife.bind(getActivity());
+        ButterKnife.bind(this, mView);
         initPresenter();
         checkPresenterIsNull();
         intiData();
         initBaseSwipseRefreshFragment();
+        Log.i("log","...............initBaseSwipseRefreshFragment....22222.........");
 
         return mView;
     }

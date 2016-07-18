@@ -10,13 +10,13 @@ import mvp.zts.com.mvp_poj.R;
 /**
  * Created by Administrator on 2016/5/20.
  */
-public class MianActivityAdapter extends BaseRecycleViewAdapter   {
+public class DataAdapter extends BaseRecycleViewAdapter   {
 
     private Context mContext;
 
 
-    public MianActivityAdapter(Context context, List<String> mListItems) {
-        super(context, R.layout.item_mian_activity, mListItems);
+    public DataAdapter(Context context, List<String> mListItems) {
+        super(context, R.layout.item_list, mListItems);
         this.mContext  =context;
     }
 

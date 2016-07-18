@@ -22,7 +22,7 @@ public abstract class BaseFragmentActivity<P extends BasePresenter> extends Base
 
    // protected Toolbar mToolbar;
     protected BaseFragment mHomeFragment;
-    private FragmentManager fm;
+    protected FragmentManager fm;
 
 
 
@@ -30,8 +30,7 @@ public abstract class BaseFragmentActivity<P extends BasePresenter> extends Base
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.i("onCreate","2222");
-       // mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        // mToolbar = (Toolbar) findViewById(R.id.toolbar);
         base_fragment_layout = (LinearLayout) findViewById(R.id.base_fragment_layout);
         checkLayoutIsNoInclude();
         initFragment();
