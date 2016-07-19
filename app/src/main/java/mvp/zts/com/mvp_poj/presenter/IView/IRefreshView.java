@@ -15,6 +15,4 @@ public interface IRefreshView<T> extends ISwipeRefreshView {
 
     void hasNoMoreData();
 
-
-
 }

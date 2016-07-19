@@ -42,6 +42,11 @@ public class FragmentActivity extends BaseFragmentActivity<FragmentPresenter> im
     }
 
     @Override
+    protected void intiData() {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle("Back",true);

@@ -38,12 +38,10 @@ public class MainActivity extends BaseSwipeRefreshActivity<MainPresenter> implem
         return mToolbar;
     }
 
-
     @Override
     protected SwipeRefreshLayout getSwipeRefreshLayout() {
         return mSwipeRefreshLayout;
     }
-
 
     @Override
     protected int getLayout() {
@@ -60,13 +58,23 @@ public class MainActivity extends BaseSwipeRefreshActivity<MainPresenter> implem
         super.onCreate(savedInstanceState);
 
         initRecycleView();
+
+    }
+
+    /**
+     * 初始化请求数据
+     */
+    @Override
+    protected void intiData() {
         // 初始化数据
         mPresenter.initData();
         // 可刷新状态准备好了
         mPrepareRefresh = true;
-
     }
 
+    /**
+     * 刷新请求数据
+     */
     @Override
     protected void onRefreshStarted() {
         mPresenter.addMoreData();
@@ -87,18 +95,25 @@ public class MainActivity extends BaseSwipeRefreshActivity<MainPresenter> implem
     public void hasNoMoreData() {
         SnackbarUtil.PrimarySnackbar(mContext,mToolbar,"无更多数据");
     }
+
+    /**
+     * 初始化填充数据
+     * @param mData
+     */
     @Override
     public void fillData(List mData) {
 
         mMianActivityAdapter.insertedAllItem(mData);
     }
 
+    /**
+     * 加载更多数据
+     * @param mData
+     */
     @Override
     public void appendMoreDataToView(List mData) {
         mMianActivityAdapter.appendMoreItem(mData);
     }
-
-
 
     @Override
     protected int getMenuRes() {
@@ -124,13 +139,10 @@ public class MainActivity extends BaseSwipeRefreshActivity<MainPresenter> implem
         return super.onOptionsItemSelected(item);
     }
 
-
     private void initRecycleView() {
         final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         main_RecyclerView.setLayoutManager(layoutManager);
         mMianActivityAdapter = new DataAdapter(mContext,adapterList);
         main_RecyclerView.setAdapter(mMianActivityAdapter);
     }
-
-
 }
